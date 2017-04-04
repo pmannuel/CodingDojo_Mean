@@ -26,7 +26,7 @@ function playerConstructor(name){
 };
 game.addPlayer('Ash')
 game.players[0].addCard()
-console.log(game.players[0].name)
+console.log(game.players);
 console.log(game.players[0].hand[0]);
 game.addPlayer('Misty')
 game.players[1].addCard()
