@@ -1,0 +1,11 @@
+{
+  "name": "GroupChat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "1.0.0",
+    "express": "~4.10.0",
+    "socket.io": "^1.7.3"
+  }
+}
