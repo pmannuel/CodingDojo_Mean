@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Registration</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-4">
+			<form action ="/users" method = "post">
+				<h3>Register Here</h3>
+				<fieldset>
+				<label>Name:
+					<input type = "text", name="name">
+				</label>
+				<label>Age:
+					<input type = "number", name="age">
+				</label>
+				</fieldset>
+				<input type = "submit" value = "register">
+			</form>
+		</div>
+		<div class="col-md-4">
+			<h3>users</h3>
+			<%for(user in users){%>
+			<div style="border-bottom: 1px solid gray">
+				<p>Name: <%=users[user].name%></p>
+				<p>Age: <%=users[user].age%></p>
+			</div>
+		<%}%>
+		</div>
+	</div>
+</body>
+</html>

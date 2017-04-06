@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Form</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="top">
+		<h1>The Mongoose Message Board</h1>
+	</div>
+	<form action="/message" method="post">
+		<p>Name: <br><input type="text" name="name">
+		<p>Message: <br><textarea name="message"></textarea><br><br>
+		<input id="post" type="submit" value="Post message">
+	</form>
+	 <% if(typeof(errors) != 'undefined' ) { %>
+	    <% for (var x in errors) { %>
+	      <h3><%= errors[x].message %></h3>
+	    <% } %>
+ 	 <% } else { %>
+ 	 	<div>
+			<% for(var x=0; x < messages.length; x++) { %>
+				<div>
+					<h3>Name: <%= messages.name %></h3>
+					<h3>Message: <%= messages[x].text %></h3>
+					<% for (var y = 0; y< messages[x].comments.length; y++) { %>
+						<p>Name: <%= messages[x].comments[y].name %></p>
+						<p>Comment: <%= messages[x].comments[y].text %></p>
+					<% } %>
+
+					<form action=<%="/comment/" + messages[x]._id %> method="post">
+						<p class="margin">Name: </p><input type="text" name="name">
+						<p class="margin">Comment: </p><textarea name="text"></textarea>
+						<input type="submit" value="Post Comment">
+					</form>
+				</div>
+			<% } %>
+		</div>
+ 	<% } %>
+
+</body>
+</html>

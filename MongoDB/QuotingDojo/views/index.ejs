@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Registration</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+        <h1>Welcome to QuotingDojo</h1>
+        <hr>
+        <div class="col-md-5">
+            <form action ="/quotes" method = "post">
+                <table>
+                    <tr>
+                        <td>Your name:</td>
+                        <td><input type = "text", name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Your quote:</td>
+                        <td><input type = "text", name="quote"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><br><input type = "submit" value = "Post my quote!"></td>
+                    </tr>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <h3>Check out these awesome quotes:</h3>
+            <br>
+            <%for(index in quotes){%>
+            <div style="border-bottom: 1px solid gray">
+                <br>
+                <p>"<%=quotes[index].quote%>"</p>
+                <p style="padding-left:10px;">- <%=quotes[index].name%> at <%=quotes[index].createdAt.toUTCString()%></p>
+            </div>
+            <%}%>
+        </div>
+</body>
+</html>
