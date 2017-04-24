@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Show</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.birthday | date: "MMMM d, yyyy" }}</td>
+        <td><a href="#!/show/{{user._id}}">Show</a></td>
+        <td><a href="#!/edit/{{user._id}}">Edit</a></td>
+        <td><button ng-click="delete(user._id);"> Remove User</button></td>
+    </tr>
+</table>

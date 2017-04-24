@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title></title>
+  <script src='bower_components/angular/angular.js'></script>
+  <script type='text/javascript'>
+    var myApp = angular.module('myApp', []);
+    myApp.controller('friendsController', function ($scope, $http){
+      // we don't need a factory for this demo, it wouldn't make a difference if we did.
+        $http.get('https://gist.githubusercontent.com/jjdelc/1868136/raw/c9160b1e60bd8c10c03dbd1a61b704a8e977c46b/crayola.json').then(function(data) {
+           $scope.colors = data["data"];
+        });
+    })
+  </script>
+</head>
+<body ng-app='myApp'>
+    <div ng-controller='friendsController'>
+      Search Color: <input type="text" ng-model="filter_color"><br><br>
+      <table class="fixed" style="text-align:center;">
+            <col width="200px" />
+            <col width="200px" />
+            <col width="200px" />
+          <tr>
+              <th>Color Name</th>
+              <th>HEX</th>
+              <th>Color</th>
+          </tr>
+          <tr ng-repeat="color in colors | filter:filter_color track by $index ">
+              <td>{{ color["name"] }}</td>
+              <td>{{ color["hex"] }}</td>
+              <td style = "background-color:{{color.hex}}"></td>
+          </tr>
+      </table>
+    </div>
+</body>
+</html>

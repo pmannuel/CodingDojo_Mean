@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- YOU CAN ALSO LOAD ANGULAR VIA CDN, IT WILL JUST BE SLOWER -->
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('foodsController', ['$scope', function($scope) {
+            $scope.foods = [];
+            $scope.addFood = function(){
+                $scope.foods.push($scope.favfood);
+                $scope.favfood = "";
+            }
+        }]);
+    </script>
+</head>
+
+<body>
+    <div style="display:flex;justify-content:center;align-content:center;" ng-controller="foodsController">
+        <div class="col-md-5">
+            <form ng-submit="addFood()">
+                <label>
+                  Favorite Food
+                </label>
+               <input type="text" ng-model='favfood'>
+               <input type="submit" value="Add Food">
+           </form>
+            <p ng-if="favfood">
+                Currently typing: {{favfood}}
+            </p>
+        </div>
+        <div class="col-md-5">
+            <div class="right">
+                <input placeholder="filter..." type="text" ng-model="foodFilter">
+                <div ng-repeat="food in foods | filter:foodFilter track by $index">
+                    <p>{{food}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

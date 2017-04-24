@@ -1,0 +1,19 @@
+<h1>Edit {{user.firstName}} {{user.lastName}}</h1>
+<form ng-submit="update()">
+  <div>
+    <input type="text"  ng-model="editedUser.firstName" />
+    <label>First Name</label>
+</div>
+
+  <div>
+    <input type="text" ng-model="editedUser.lastName" />
+    <label>Last Name</label>
+  </div>
+
+  <div>
+    <input type="date" ng-model="editedUser.birthday" />
+    <label>Birthday</label>
+  </div>
+
+  <input type="submit" value="Update">
+</form>

@@ -1,0 +1,46 @@
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
+<h1>Create Friends!</h1>
+<form ng-submit="NC.create()">
+  <div>
+    <label>First Name</label>
+    <input ng-model="NC.newFriend.firstName" />
+  </div>
+
+  <div>
+    <label>Last Name</label>
+    <input ng-model="NC.newFriend.lastName" />
+  </div>
+
+  <div>
+    <label>Birthday</label>
+    <input ng-model="NC.newFriend.birthday" />
+  </div>
+
+  <input type="submit" value="Create">
+</form>
+<table id = "friends_table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Birthday</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tr ng-repeat = "friend in NC.friends">
+    <td>{{friend.firstName}} {{friend.lastName}}</td>
+    <td>{{friend.birthday}}</td>
+    <td><a href="/friends/{{friend._id}}">Show</a> <a href="#/edit/{{friend._id}}">Edit</a></td>
+  </tr>
+</table>
+<!-- show created user below -->
+<div ng-if="NC.createdFriend" style="border: 1px solid blue; padding: 10px; margin: 5px;">
+  <h2>A new friend was created!</h2>
+  <h3>id:</h3>
+  <p ng-bind="NC.createdFriend._id"></p>
+  <h3>First Name:</h3>
+  <p ng-bind="NC.createdFriend.firstName"></p>
+  <h3>Last Name:</h3>
+  <p ng-bind="NC.createdFriend.lastName"></p>
+  <h3>Birthday:</h3>
+  <p ng-bind="NC.createdFriend.birthday"></p>
+</div>

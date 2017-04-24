@@ -1,0 +1,17 @@
+<h1>Show A User</h1>
+<form>
+  <div>
+    <input type="text"  value='{{user.firstName}}'>
+    <label>First Name</label>
+  </div>
+
+  <div>
+    <input type="text"  value='{{user.lastName}}' >
+    <label>Last Name</label>
+  </div>
+
+  <div>
+    <input type="text" value='{{ user.birthday | date: "MMMM d, yyyy" }}'>
+    <label>Birthday</label>
+  </div>
+</form>

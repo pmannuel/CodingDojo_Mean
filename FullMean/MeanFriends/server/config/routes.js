@@ -1,10 +1,10 @@
 var path = require('path');
-var friends = require('./../controllers/friends.js');
+var users = require('./../controllers/users.js');
 
 module.exports = function(app){
-    app.get('/friends', friends.index);
-    app.get('/friends/:id', friends.show);
-    app.post('/friends', friends.create);
-    app.put('/friends/:id', friends.update);
-    app.delete('/friends/:id', friends.delete);
+    app.get('/users', users.index);
+    app.get('/users/:id', users.show);
+    app.post('/users', users.create);
+    app.put('/users/:id', users.update);
+    app.delete('/users/:id', users.delete);
 };

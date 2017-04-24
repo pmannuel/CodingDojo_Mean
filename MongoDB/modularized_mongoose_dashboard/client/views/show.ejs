@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show</title>
+</head>
+<body>
+  <h1>Show!</h1>
+  <%if(dog){%>
+  <h3>Name: <%= dog.name %></h3>
+  <h3>Weight: <%= dog.weight %></h3>
+  <h4>Color: <%= dog.color %></h4>
+  <a href="/<%= dog._id %>/edit">Edit</a>
+  <%}%>
+  <a href="/">Home</a>
+</body>
+</html>

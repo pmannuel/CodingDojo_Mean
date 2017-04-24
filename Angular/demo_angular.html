@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app=''>
+<head>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+  <div ng-init="students=[{name: 'Mike', age: 34}, {name: 'John', age: 24}, {name: 'Trey', age: 24}, {name: 'India', age: 35}]">
+    <ul>
+        <li ng-repeat="student in students">{{student.name}}, {{student.age}}</li>
+    </ul>
+  </div>
+</body>
+</html>
