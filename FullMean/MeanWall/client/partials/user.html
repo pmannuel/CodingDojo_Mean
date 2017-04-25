@@ -1,0 +1,33 @@
+<h1>Log in!</h1>
+<form ng-submit="login()">
+    <input type="text" placeholder="email" ng-model="user.email" >
+    <p >{{noEmail}}</p>
+
+    <input type="text" placeholder="password" ng-model="user.password" >
+    <p >{{incorrectPassword}}</p>
+
+    <input type="submit" value="Log In">
+</form>
+
+<h1>New user? Register here.</h1>
+<form ng-submit="addUser()">
+    <input type="text" placeholder="first name" ng-model="newUser.firstName" >
+    <p >{{firstNameError}}</p>
+
+    <input type="text" placeholder="last name" ng-model="newUser.lastName" >
+    <p >{{lastNameError}}</p>
+
+    <input type="text" placeholder="email" ng-model="newUser.email" >
+    <p >{{emailError}}</p>
+
+    <input type="date" placeholder="birthday" ng-model="newUser.birthday" >
+    <p >{{birthdayError}}</p>
+
+    <input type="text" placeholder="password" ng-model="newUser.password" >
+    <p >{{passwordError}}</p>
+
+    <input type="text" placeholder="confirm password" ng-model="newUser.confirmPassword" >
+    <p >{{confirmPasswordError}}</p>
+
+    <input type="submit" value="Register">
+</form>

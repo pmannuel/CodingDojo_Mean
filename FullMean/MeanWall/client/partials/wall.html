@@ -1,0 +1,30 @@
+<div class="nav">
+    <p><a href="#" ng-click="signout()">Sign out</a> | Welcome, <b>{{currentUser.firstName}} {{currentUser.lastName}}</b>!</p>
+</div>
+<hr>
+<div class="main_wall">
+    <form ng-submit="postMessage()">
+        <p>Post a message:</p>
+        <textarea rows="3" cols="60" ng-model="newMessage.content"></textarea>
+        <br><input type="submit" value="Post a message">
+    </form>
+    <br><br>
+    <h3>Check out posted messages below:</h3>
+    <br>
+    <div class="allMessages">
+        <div ng-repeat="message in messages track by $index">
+            <p><i>{{ message._user.firstName }} {{ message._user.lastName }}- {{ message.created_at | date:'h:mm a MM/dd/yyyy'}}</i></p>
+            <h3><b>{{ message.content }}</b></h3>
+            <p>Comments:</p>
+            <div ng-repeat="comment in message.notes">
+                <p>{{ comment._user.firstName }} says: {{ comment.content }} - {{ comment.created_at | date:'h:mm a MM/dd/yyyy'}}</p>
+            </div>
+            <form ng-submit="postComment(message._id, $index)">
+                <p>Post a comment:</p>
+                <textarea rows="4" cols="40" ng-model="newComment[$index].content"></textarea>
+                <br><input type="submit" value="Post a comment">
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
