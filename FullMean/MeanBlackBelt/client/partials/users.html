@@ -1,0 +1,23 @@
+<style>
+    #users_wrapper {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .name_input{
+        width: 225px;
+    }
+</style>
+<div id="users_wrapper">
+    <div class="console">
+        <h1 id="logo">Bucket Lists 📝</h1>
+        <form ng-submit="login()">
+            <input class="name_input" type="text" placeholder="What's your name?" ng-model="user.name">
+            <br><br>
+            <input class="submit_input" type="submit" value="Enter">
+        </form>
+        <p>{{error}}</p>
+    </div>
+</div>

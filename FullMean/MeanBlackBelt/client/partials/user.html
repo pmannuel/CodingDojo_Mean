@@ -1,0 +1,20 @@
+
+<div id="nav-bar">
+    <a href="/#!/home"><b>📝 Bucket List</b></a> | <a href="/#!/home">Home</a> | <a href="#" ng-click="logout()">Logout</a>
+</div>
+<div id="content">
+    <h1>{{visitedUser.name}}'s Bucket List</h1>
+    <p style="color:#e60000;display:inline;">{{error_message}}</p>
+    <br>
+    <p>Done</p>
+    <p ng-repeat='wish in wishes' ng-if="wish.completed==true">
+        <input type="checkbox" ng-click="updateCompletion(wish._id)" checked>
+        <b>{{wish.title}}</b> - {{wish.description}} &nbsp ({{wish._user.name}}, {{wish.created_at| date: 'mediumDate'}})
+    </p>
+    <br>
+    <p>Pending</p>
+    <p ng-repeat='wish in wishes' ng-if="wish.completed==false">
+        <input type="checkbox" ng-click="updateCompletion(wish._id)">
+        <b>{{wish.title}}</b> - {{wish.description}} &nbsp ({{wish._user.name}}, {{wish.created_at| date: 'mediumDate'}})
+    </p>
+</div>

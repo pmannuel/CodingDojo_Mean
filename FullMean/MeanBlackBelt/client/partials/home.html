@@ -1,0 +1,27 @@
+<div id="nav-bar">
+    <a href="/#!/home"><b>📝 Bucket List</b></a> | <a href="/#!/home">Home</a> | <a href="#" ng-click="logout()">Logout</a>
+</div>
+<div id="content">
+    <h1>Welcome, {{currentUser.name}}!</h1>
+    <form ng-submit="addWish()">
+        <input type="text" placeholder="Title" ng-model="newWish.title">
+        <input type="text" placeholder="Description" ng-model="newWish.description">
+        <select ng-model="newWish._taggeduser">
+            <option value="">Select...</option>
+            <option ng-repeat="user in otherUsers" value="{{user._id}}">{{user.name}}</option>
+        </select>
+        <input type="submit" value="Add to List">
+    </form>
+    <br>
+    <br>
+    <p>Before I die I want to . . .</p>
+    <p style="font-size:1.75vh;" ng-repeat='wish in wishes'>
+        <input type="checkbox" ng-model="wish.completed" ng-click='updateCompletion(wish._id)'>
+        <b>{{wish.title}}</b> - {{wish.description}} &nbsp ({{wish._user.name}}, {{wish.created_at| date: 'mediumDate'}})
+    </p>
+    <br>
+    <p>List of other users (Click to view profile)</p>
+    <div id="other-user-list" ng-repeat="user in otherUsers">
+        • <a href="/#!/user/{{user._id}}">&nbsp {{ user.name }}</a>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<form ng-submit="addUser()">
+    <p><b><u>Add a new customer:</u></b></p>
+    Customer Name: <input type="text" ng-model="newUser.name">
+    <input type="submit" value="Add">
+</form>
+<p style="color:red;display:inline;"> {{errors}}</p>
+<br>
+<br>
+<br>
+<input placeholder="search name..." type="text" ng-model="filter_user"><br><br>
+<table style="table-layout:fixed;text-align:center;">
+    <col width="500px" />
+    <col width="500px" />
+    <col width="500px" />
+    <tr>
+        <th>Customer Name</th>
+        <th>Created Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr ng-repeat="user in users | filter:filter_user track by $index ">
+        <td>{{ user.name }}</td>
+        <td>{{ user.created_at | date: "MMMM d, yyyy" }}</td>
+        <td><button ng-click="delete(user._id);">Remove</button></td>
+    </tr>
+</table>
