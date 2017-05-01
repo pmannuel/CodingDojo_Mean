@@ -71,7 +71,14 @@ app.controller('homeController',
 
                 homeFactory.addWish($scope.newWish, function(data) {
                     console.log('***** RETURNED DATA: all other users *****');
-                    console.log(data);
+                    console.log(data.data);
+                    $scope.error_message_title = '';
+                    $scope.error_message_description = '';
+                    if (data.data.errors) {
+                        $scope.error_message_title = data.data.errors.title.message;
+                        $scope.error_message_description = data.data.errors.description.message;
+                    }
+                    $scope.newWish = {};
                     showWishes();
                     $location.url('/home');
                 });

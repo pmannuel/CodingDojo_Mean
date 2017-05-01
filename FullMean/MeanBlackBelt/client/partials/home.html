@@ -1,5 +1,5 @@
 <div id="nav-bar">
-    <a href="/#!/home"><b>📝 Bucket List</b></a> | <a href="/#!/home">Home</a> | <a href="#" ng-click="logout()">Logout</a>
+    <a href="/#!/home"><b>📝 Bucket Lists</b></a> | <a href="/#!/home">Home</a> | <a href="#" ng-click="logout()">Logout</a>
 </div>
 <div id="content">
     <h1>Welcome, {{currentUser.name}}!</h1>
@@ -12,6 +12,8 @@
         </select>
         <input type="submit" value="Add to List">
     </form>
+    <p style="display:inline;color:#e60000;">{{error_message_title}}</p><br>
+    <p style="display:inline;color:#e60000;">{{error_message_description}}</p>
     <br>
     <br>
     <p>Before I die I want to . . .</p>
